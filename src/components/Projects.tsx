@@ -1,9 +1,11 @@
-import { bodyFont, titleFont, titleFontBold } from "@/utils/fonts";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { BiCodeBlock } from "react-icons/bi";
-import Paginate from "./Paginate";
 import { Montserrat, Poppins } from "next/font/google";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Link from "next/link";
 const poppins = Poppins({
   weight: ["300", "600"],
   subsets: ["latin"],
@@ -21,8 +23,24 @@ interface ProjectCardProps {
 }
 
 export default function Projects() {
-  /* Main object with different projects */
+  // Main object with different projects
   const projects = [
+    {
+      id: uuid(),
+      name: "witty-analytics",
+      description:
+        "Full stack development of analytics platform using stripe for payments and strapi for backend.",
+      tags: [
+        { name: "react" },
+        { name: "strapi" },
+        { name: "HTML5" },
+        { name: "tailwindcss" },
+        { name: "postgres" },
+        { name: "stripe" },
+        { name: "typescript" },
+      ],
+      link: "",
+    },
     {
       id: uuid(),
       name: "geoserver-catasig-app",
@@ -65,7 +83,7 @@ export default function Projects() {
         { name: "SASS" },
         { name: "typescript" },
       ],
-      link: "",
+      link: "https://www.catasig.gov.co/",
     },
     {
       id: uuid(),
@@ -93,7 +111,7 @@ export default function Projects() {
         { name: "codeigniter" },
         { name: "mysql" },
       ],
-      link: "",
+      link: "https://www.instagram.com/mrcakebq/?hl=es",
     },
     {
       id: uuid(),
@@ -107,13 +125,13 @@ export default function Projects() {
         { name: "materialize" },
         { name: "CSS3" },
       ],
-      link: "",
+      link: "https://jesusdsg.github.io/note-calculator/",
     },
     {
       id: uuid(),
       name: "sied-met-at-cal",
       description:
-        "Monoproject based in .Net Framework using Devexpress framework for the management of medical equipment and schedules in hospitals.",
+        "Monoproject based in .Net Framework using Devexpress framework for the management of medical equipment in hospitals.",
       tags: [
         { name: "devxpress" },
         { name: "c#" },
@@ -126,7 +144,7 @@ export default function Projects() {
     },
     {
       id: uuid(),
-      name: "admisalud-medical-at-home",
+      name: "admisalud-med-at-home",
       description:
         "Monoproject based in .Net Framework using Devexpress framework for the management of medical functions in hospital.",
       tags: [
@@ -154,57 +172,75 @@ export default function Projects() {
     },
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [projectsPerPage] = useState<number>(3);
-  const indexOfLastPost = currentPage * projectsPerPage;
-  const indexOfFirstPost = indexOfLastPost - projectsPerPage;
-  /* Array where only the current items will be displayed */
-  const currentProjects = projects.slice(indexOfFirstPost, indexOfLastPost);
-
-  const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
-  /* Project card */
+  /* 
+  Project card
+  */
   const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
-      <div
-        className="px-6 py-6 border border-secondary-dark rounded-lg 
-      hover:bg-secondary-dark hover:border-gray-700 duration-300 cursor-pointer"
-      >
-        <div className="flex items-center gap-2">
-          <BiCodeBlock className="text-gray-400" />{" "}
-          <h3 className="text-cyan-400 font-bold" style={poppins.style}>
-            {project.name}
-          </h3>
-        </div>
+      <Link href={project.link}>
         <div
-          className="h-24 mt-4 overflow-hidden text-gray-400 text-sm"
-          style={montserrat.style}
+          className="lg:h-64 m-4 px-6 py-6 border border-secondary-dark rounded-lg 
+      hover:bg-secondary-dark hover:border-gray-700 duration-300 cursor-pointer"
         >
-          {project.description}
+          <div className="flex items-center gap-2">
+            <BiCodeBlock className="text-gray-400" />{" "}
+            <h3 className="text-cyan-400 font-bold" style={poppins.style}>
+              {project.name}
+            </h3>
+          </div>
+          <div
+            className="h-24 mt-4 overflow-hidden text-gray-400 text-sm"
+            style={montserrat.style}
+          >
+            {project.description}
+          </div>
+          <div className="flex flex-wrap gap-2 text-sm">
+            {project.tags.map((tag: { name: string }) => {
+              return (
+                <div
+                  key={tag.name}
+                  className={
+                    "bg-gray-700/50 py-1 px-2 rounded-lg text-xs text-gray-300 w-fit " +
+                    poppins.className
+                  }
+                >
+                  {tag.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="flex flex-wrap gap-2 text-sm">
-          {project.tags.map((tag: { name: string }) => {
-            return (
-              <div
-                key={tag.name}
-                className={
-                  "bg-gray-700/50 py-1 px-2 rounded-lg text-xs text-gray-300 w-fit " +
-                  poppins.className
-                }
-              >
-                {tag.name}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      </Link>
     );
   };
 
-  /* Projects list */
-  const listProjects = currentProjects.map(
+  const [windowWidth, setWindowWidth] = useState(1366);
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: false,
+    vertical: windowWidth > 600 ? false : true,
+  };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
+
+  /* 
+  Projects list 
+  */
+  const listProjects = projects.map(
     (project: {
       id: string;
       name: string;
@@ -223,12 +259,9 @@ export default function Projects() {
         Projects and Collaboration
       </h3>
       <div className="py-8">
-        <div className="grid lg:grid-cols-3 gap-8">{listProjects}</div>{" "}
-        <Paginate
-          postsPerPage={projectsPerPage}
-          totalPosts={projects.length}
-          paginate={paginate}
-        />
+        <Slider {...settings} className="grid">
+          {listProjects}
+        </Slider>
       </div>
     </div>
   );

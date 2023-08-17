@@ -1,4 +1,3 @@
-import { bodyFont, titleFont, titleFontBold } from "@/utils/fonts";
 import React from "react";
 import { Montserrat, Poppins } from "next/font/google";
 const poppins = Poppins({
