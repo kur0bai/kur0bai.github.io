@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { BiCodeBlock } from "react-icons/bi";
 import { Montserrat, Poppins } from "next/font/google";
@@ -22,7 +22,7 @@ interface ProjectCardProps {
   };
 }
 
-export default function Projects() {
+const Projects = forwardRef<HTMLElement>((_, ref) => {
   // Main object with different projects
   const projects = [
     {
@@ -179,7 +179,7 @@ export default function Projects() {
     return (
       <Link href={project.link}>
         <div
-          className="lg:h-64 m-4 px-6 py-6 border border-secondary-dark rounded-lg 
+          className="lg:h-64 m-4 px-6 py-6 bg-secondary-dark rounded-lg 
       hover:bg-secondary-dark hover:border-gray-700 duration-300 cursor-pointer"
         >
           <div className="flex items-center gap-2">
@@ -251,7 +251,7 @@ export default function Projects() {
   );
 
   return (
-    <div className="h-auto pt-60 my-20 lg:py-24" id="projects">
+    <section className="h-screen pt-60 my-20 lg:py-24" id="projects" ref={ref}>
       <h3
         className="text-2xl font-bold text-white duration-300 font-bold"
         style={poppins.style}
@@ -263,6 +263,8 @@ export default function Projects() {
           {listProjects}
         </Slider>
       </div>
-    </div>
+    </section>
   );
-}
+});
+
+export default Projects;
