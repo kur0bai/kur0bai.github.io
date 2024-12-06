@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "main-dark": "#161b22",
-        "secondary-dark": "#21262d"
-      }
+        "main-dark": "#2d2e32",
+        "secondary-dark": "#28292d",
+      },
     },
   },
   plugins: [],
