@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Montserrat, Poppins } from "next/font/google";
 const poppins = Poppins({
   weight: ["300", "600"],
@@ -6,11 +6,11 @@ const poppins = Poppins({
 });
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
-export default function About() {
+const About = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <div className="h-screen py-40" id="about">
+    <section className="h-screen py-40" id="about" ref={ref}>
       <div className="h-auto">
-        <div className="my-4 md:grid lg:grid grid-cols-2 gap-10">
+        <div className="my-4 md:grid lg:grid grid-cols-2 gap-10 bg-secondary-dark p-8 rounded-lg">
           <div>
             <h3
               className="text-2xl font-bold text-white duration-300 font-bold"
@@ -96,6 +96,8 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+});
+
+export default About;

@@ -6,7 +6,6 @@ interface MotionProps {
 }
 
 export default function Motion({ children }: MotionProps) {
-  console.log("Motion is here");
   const variants = {
     hidden: { opacity: 0, x: -200, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },
