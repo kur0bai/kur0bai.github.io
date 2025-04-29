@@ -1,9 +1,4 @@
-import React, {
-  ClassAttributes,
-  forwardRef,
-  LegacyRef,
-  RefAttributes,
-} from "react";
+import React, { forwardRef, LegacyRef } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { Montserrat, Poppins } from "next/font/google";
