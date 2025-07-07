@@ -45,7 +45,7 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
               fullWidth={false}
               href="mailto:devjesg@gmail.com"
             >
-              Contact me
+              Contact Me
             </CustomLink>
           </div>
           <div className="w-full lg:w-1/2 m-auto block">
@@ -83,7 +83,7 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
                 alt="Profile photo"
                 className="rounded-full border-2 border-secondary-dark/50 duration-300 absolute z-10 -ml-5 md:ml-auto lg:ml-auto cursor-pointer"
               />
-              <div className="h-full w-full bg-secondary-dark rounded-full absolute ml-5 mt-10 lg:ml-20 lg:mt-20"></div>
+              <div className="h-full w-full bg-secondary-dark opacity-30 rounded-full absolute ml-5 mt-10 lg:ml-20 lg:mt-20"></div>
             </div>
           </div>
         </div>

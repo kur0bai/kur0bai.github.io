@@ -19,7 +19,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="flex fixed w-full items-center justify-between flex-wrap bg-transparent py-4 px-8 lg:px-16 lg:py-2 z-40">
+    <nav className="flex fixed w-full items-center justify-between flex-wrap  bg-transparent py-4 px-8 lg:px-16 lg:py-2 z-40">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
           <div

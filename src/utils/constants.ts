@@ -57,7 +57,7 @@ const PROJECTS = [
   },
   {
     id: uuid(),
-    name: "geoserver-catasig-app",
+    name: "xiltriom-geoserver",
     description:
       "Project of a spatial geoviewer for the visualization and manipulation of data at the municipal level, with the aim of facilitating the review and classification of properties and property tax calculations.",
     tags: [
@@ -67,7 +67,6 @@ const PROJECTS = [
       { name: "tailwindcss" },
       { name: "postgres" },
       { name: "typescript" },
-      { name: "nuxt" },
       { name: "mapbox" }
     ],
     link: "https://sabanalarga.xiltriongeoservicio.com/map",
@@ -126,13 +125,12 @@ const PROJECTS = [
     tags: [
       { name: "react" },
       { name: "nodejs" },
-      { name: "HTML5" },
       { name: "tailwindcss" },
       { name: "postgres" },
       { name: "prisma" },
       { name: "typescript" },
     ],
-    link: "",
+    link: "#projects",
   },
   {
     id: uuid(),
@@ -141,13 +139,13 @@ const PROJECTS = [
       "Development of geoservice manager for calculate routes, manage of sales and sales representatives by countries and parameters in ABinBev.",
     tags: [
       { name: "angular" },
+      { name: "django" },
       { name: "python" },
-      { name: "HTML5" },
       { name: "SASS" },
       { name: "typescript" },
       { name: "google maps" }
     ],
-    link: "",
+    link: "#projects",
   },
   {
     id: uuid(),
@@ -190,7 +188,7 @@ const PROJECTS = [
       { name: "bootstrap" },
       { name: "hospital" },
     ],
-    link: "",
+    link: "https://www.instagram.com/p/BiE_KzzhnqY/?hl=es",
   },
   {
     id: uuid(),
@@ -205,7 +203,7 @@ const PROJECTS = [
       { name: "ajax" },
       { name: "hospital" },
     ],
-    link: "",
+    link: "https://www.instagram.com/p/BRrFZOYFJcZ/?hl=es",
   },
   {
     id: uuid(),
@@ -218,7 +216,7 @@ const PROJECTS = [
       { name: "fashion" },
       { name: "ecommerce" },
     ],
-    link: "",
+    link: "#projects",
   },
 ];
 

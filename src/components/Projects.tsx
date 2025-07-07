@@ -1,12 +1,8 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
 import { Montserrat, Poppins } from "next/font/google";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import Link from "next/link";
 import { Card } from "./Card";
-import { Code, Code2 } from "lucide-react";
+import { Code } from "lucide-react";
 const poppins = Poppins({
   weight: ["300", "600"],
   subsets: ["latin"],
@@ -116,9 +112,6 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
         Projects and Collaborations
       </h3>
       <div className="py-8 w-full overflow-hidden">
-        {/*  <Slider {...settings} className="grid">
-          {listProjects}
-        </Slider> */}
         <div className="embla" ref={emblaRef}>
           <div className="embla__container">
             {listProjects}
@@ -129,8 +122,8 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
               <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
               <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
             </div>
-
           </div>
+
 
         </div>
       </div>

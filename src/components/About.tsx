@@ -14,7 +14,7 @@ const About = forwardRef<HTMLElement>((_, ref) => {
   return (
     <section className="px-4 lg:px-20 my-20" id="about" ref={ref}>
       <h3
-        className="text-2xl font-bold text-white duration-300 font-bold lg:mb-20 mb-10 lg:mt-24 text-center lg:text-left "
+        className="text-2xl font-bold text-white duration-300 font-bold lg:mb-20 mb-10 lg:mt-24 text-left "
         style={poppins.style}
       >
         Skills and technologies
