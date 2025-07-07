@@ -4,6 +4,8 @@ import { TypeAnimation } from "react-type-animation";
 import { Montserrat, Poppins } from "next/font/google";
 import CustomLink from "./CustomLink";
 import Motion from "./Motion";
+import { ArrowDown, ChevronDown } from "lucide-react";
+import { motion } from 'framer-motion'
 const poppins = Poppins({
   weight: ["300", "400", "600"],
   subsets: ["latin"],
@@ -16,7 +18,7 @@ interface ProfileProps {
 const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
   return (
     <Motion>
-      <section className="h-screen py-40" id="profile" ref={ref}>
+      <section className="h-screen flex items-center relative" id="profile" ref={ref}>
         <div className="grid gap-10 md:flex lg:flex lg:gap-10">
           <div className="w-full lg:w-1/2">
             <h3
@@ -90,6 +92,22 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
             </div>
           </div>
         </div>
+
+        <div className="absolute bottom-2 h-32 text-center items-center self-center w-full">
+          <motion.div
+            animate={{
+              y: [0, -10, 0], // sube, baja
+            }}
+            transition={{
+              duration: 1.2,
+              repeat: Infinity,
+              repeatDelay: 0,
+              ease: 'easeInOut',
+            }}
+            className="inline-block"
+          >
+            <a href="#about"><ChevronDown size={40} /></a>
+          </motion.div></div>
       </section>
     </Motion>
   );

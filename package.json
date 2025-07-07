@@ -3,7 +3,7 @@
   "author": {
     "name": "Jesus Salcedo",
     "email": "devjesg@gmail.com",
-    "url": "https://github.com/jesusdsg"
+    "url": "https://github.com/kur0bai"
   },
   "version": "0.1.0",
   "private": true,
@@ -22,7 +22,8 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.16.0",
-    "next": "13.2.4",
+    "lucide-react": "^0.525.0",
+    "next": "^15.3.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",

@@ -8,7 +8,7 @@ export default function LeftButtons() {
       <div className="grid justify-center items-center gap-4">
         <a
           className="cursor-pointer text-gray-500 hover:text-cyan-500 duration-300"
-          href="https://github.com/jesusdsg/"
+          href="https://github.com/kur0bai/"
           rel="noreferrer"
           target="_blank"
         >
