@@ -1,6 +1,5 @@
 import React from "react";
-import { BiLogoGithub, BiLogoLinkedin } from "react-icons/bi";
-import { AiOutlineMore } from "react-icons/ai";
+import { Github, Linkedin, MoreHorizontal, MoreVertical } from "lucide-react";
 
 export default function LeftButtons() {
   return (
@@ -12,7 +11,7 @@ export default function LeftButtons() {
           rel="noreferrer"
           target="_blank"
         >
-          <BiLogoGithub size={"1.6rem"} />
+          <Github size={"1.6rem"} />
         </a>
         <a
           className="cursor-pointer text-gray-500 hover:text-cyan-500 duration-300"
@@ -20,9 +19,9 @@ export default function LeftButtons() {
           rel="noreferrer"
           target="_blank"
         >
-          <BiLogoLinkedin size={"1.6rem"} />
+          <Linkedin size={"1.6rem"} />
         </a>
-        <AiOutlineMore size={"1.6rem"} className="text-cyan-500" />
+        <MoreVertical size={"1.6rem"} className="text-cyan-500" />
       </div>
     </div>
   );

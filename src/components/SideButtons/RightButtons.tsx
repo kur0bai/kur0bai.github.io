@@ -1,7 +1,6 @@
 import React from "react";
-import { AiOutlineMore } from "react-icons/ai";
-import { BiMailSend } from "react-icons/bi";
 import { Montserrat } from "next/font/google";
+import { MoreVertical, Send, SendIcon } from "lucide-react";
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export default function RightButtons() {
@@ -15,7 +14,7 @@ export default function RightButtons() {
           className="cursor-pointer text-gray-500 hover:text-cyan-500 duration-300"
           href="mailto:devjesg@gmail.com"
         >
-          <BiMailSend size={"1.6rem"} />
+          <Send size={"1.6rem"} />
         </a>
 
         <span
@@ -24,7 +23,7 @@ export default function RightButtons() {
         >
           Hire me
         </span>
-        <AiOutlineMore size={"1.6rem"} className="text-cyan-500" />
+        <MoreVertical size={"1.6rem"} className="text-cyan-500" />
       </div>
     </div>
   );

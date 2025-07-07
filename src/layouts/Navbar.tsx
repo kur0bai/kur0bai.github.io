@@ -1,11 +1,9 @@
 import Link from "next/link";
 import React, { ElementRef, useRef, useState } from "react";
-import { bodyFont, titleFont, titleFontBold } from "@/utils/fonts";
-import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
 import classNames from "classnames";
 import { Montserrat, Poppins } from "next/font/google";
-import { BiCoffeeTogo } from "react-icons/bi";
 import Image from "next/image";
+import { Coffee, ListFilter, Menu, X } from "lucide-react";
 const poppins = Poppins({
   weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
@@ -39,7 +37,7 @@ export default function Navbar() {
       </div>
       <div className="block lg:hidden">
         <button className="flex items-center px-3 py-2">
-          <HiMenuAlt3
+          <ListFilter
             size="2rem"
             className="hover:text-cyan-500 duration-300"
             onClick={() => toggleMobileMenu(!mobileMenu)}
@@ -56,7 +54,7 @@ export default function Navbar() {
             <Image src="/favicon.png" width={40} height={40} alt="logo" />
           </div>
         </Link>
-        <HiOutlineX
+        <X
           className="float-right hover:text-cyan-500 duration-300 cursor-pointer"
           size="2rem"
           onClick={() => toggleMobileMenu(!mobileMenu)}
@@ -92,7 +90,7 @@ export default function Navbar() {
             className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-500 mr-4 duration-300 items-center"
             onClick={() => toggleMobileMenu(!mobileMenu)}
           >
-            <BiCoffeeTogo className="m-auto" />
+            <Coffee className="m-auto" />
           </Link>
         </div>
       </div>
@@ -128,7 +126,7 @@ export default function Navbar() {
             className="hover:text-cyan-500 duration-300 hover:motion-reduce:animate-spin"
             href="https://www.buymeacoffee.com/jesusalcedo"
           >
-            <BiCoffeeTogo />
+            <Coffee />
           </Link>
         </div>
       </div>

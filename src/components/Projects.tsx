@@ -1,11 +1,12 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { BiCodeBlock } from "react-icons/bi";
 import { Montserrat, Poppins } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Link from "next/link";
+import { Card } from "./Card";
+import { Code, Code2 } from "lucide-react";
 const poppins = Poppins({
   weight: ["300", "600"],
   subsets: ["latin"],
@@ -178,16 +179,12 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
   const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
       <Link href={project.link}>
-        <div
-          className="lg:h-64 m-4 px-6 py-6 bg-secondary-dark rounded-lg 
-      hover:bg-secondary-dark hover:border-gray-700 duration-300 cursor-pointer"
-        >
+        <Card>
           <div className="flex items-center gap-2">
-            <BiCodeBlock className="text-gray-400" />{" "}
-            <h3 className="text-cyan-400 font-bold" style={poppins.style}>
+            <Code className="text-cyan-500" />{" "}
+            <h3 className="text-current font-bold" style={poppins.style}>
               {project.name}
-            </h3>
-          </div>
+            </h3>          </div>
           <div
             className="h-24 mt-4 overflow-hidden text-gray-400 text-sm"
             style={montserrat.style}
@@ -209,7 +206,7 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
               );
             })}
           </div>
-        </div>
+        </Card>
       </Link>
     );
   };
@@ -251,12 +248,12 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
   );
 
   return (
-    <section className="h-screen pt-60 my-20 lg:py-24" id="projects" ref={ref}>
+    <section  className="px-4 lg:px-20 my-20" id="projects" ref={ref}>
       <h3
         className="text-2xl font-bold text-white duration-300 font-bold"
         style={poppins.style}
       >
-        Projects and Collaboration
+        Projects and Collaborations
       </h3>
       <div className="py-8">
         <Slider {...settings} className="grid">

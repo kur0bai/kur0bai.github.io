@@ -9,7 +9,7 @@ export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const isScrolling = useRef(false);
 
-  const handleScroll = () => {
+/*   const handleScroll = () => {
     if (isScrolling.current) return;
 
     const scrollY = window.scrollY;
@@ -48,7 +48,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, []); */
 
   return (
     <Layout>

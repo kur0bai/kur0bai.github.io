@@ -25,7 +25,7 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
               className="text-white text-3xl lg:text-5xl font-bold flex gap-2 font-semibold"
               style={poppins.style}
             >
-              <TypeAnimation sequence={["Hi there, I'm "]} cursor={false} />
+              <TypeAnimation sequence={["Hi, I'm "]} cursor={false} />
               <TypeAnimation
                 sequence={[1000, " Jesus"]}
                 className="text-cyan-500"
@@ -33,16 +33,11 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
               />
             </h3>
             <p
-              className="mt-2 mb-6 text-gray-400 text-base"
+              className="my-6 text-gray-400 text-base"
               style={montserrat.style}
             >
-              Fullstack and Mobile Dev skilled in front-end frameworks like{" "}
-              <strong>React / React native</strong>, <strong>Angular</strong>{" "}
-              and <strong>Vue</strong>, back-end (<strong>Node.js</strong> &{" "}
-              <strong>Python</strong>), DBs (<strong>Non relational</strong>,
-              <strong> SQL</strong>), and Agile. Passionate about creating
-              solutions, seamless web experiences and delivering scalable
-              applications. Strong problem-solving and collaboration abilities.
+              I'm a Software Developer from Colombia with a strong passion for <strong>Python</strong>, <strong>AI</strong>, <strong>cybersecurity</strong>, and modern web technologies like <strong>React</strong>, <strong>Nestjs</strong>, and <strong>FastApi</strong>. Currently working as a fullstack developer, I have experience building solutions for mobile, web, and cloud platforms.{" "}
+              I thrive when solving real-world problems, exploring security challenges, and integrating AI-powered features into practical applications.
             </p>
             <CustomLink
               type="button"
@@ -76,9 +71,9 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
               {/* Javascript */}
               <div className="absolute bg-secondary-dark rounded-full shadow-lg h-14 w-14 bottom-8 -right-4 z-20">
                 <Image
-                  src="/Images/Icons/javascript.svg"
+                  src="/Images/Icons/python.svg"
                   fill
-                  alt="React"
+                  alt="Python"
                   className="p-2 text-red-200"
                 />
               </div>
@@ -93,7 +88,7 @@ const Profile = forwardRef<HTMLElement, ProfileProps>((_, ref) => {
           </div>
         </div>
 
-        <div className="absolute bottom-2 h-32 text-center items-center self-center w-full">
+        <div className="hidden lg:block absolute bottom-2 h-32 text-center items-center self-center w-full">
           <motion.div
             animate={{
               y: [0, -10, 0], // sube, baja

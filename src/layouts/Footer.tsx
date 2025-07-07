@@ -1,5 +1,5 @@
+import { Codepen, Dribbble, Github, LucideGithub } from "lucide-react";
 import React from "react";
-import { BiLogoDribbble, BiLogoGithub, BiLogoCodepen } from "react-icons/bi";
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
           target="_blank"
           className="hover:text-cyan-500 duration-300"
         >
-          <BiLogoDribbble />
+          <Dribbble />
         </a>
         <a
           href="https://github.com/jesusdsg"
@@ -19,7 +19,7 @@ export default function Footer() {
           target="_blank"
           className="hover:text-cyan-500 duration-300"
         >
-          <BiLogoGithub />
+          <Github />
         </a>
 
         <a
@@ -28,7 +28,7 @@ export default function Footer() {
           target="_blank"
           className="hover:text-cyan-500 duration-300"
         >
-          <BiLogoCodepen />
+          <Codepen />
         </a>
       </div>
       <div className="text-center text-sm text-gray-400">
