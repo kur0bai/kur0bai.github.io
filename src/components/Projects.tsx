@@ -12,6 +12,10 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
+import useEmblaCarousel from 'embla-carousel-react'
+import { NextButton, PrevButton, usePrevNextButtons } from "./SliderButtons";
+import { Badge } from "./Badge";
+import { PROJECTS } from "@/utils/constants";
 
 interface ProjectCardProps {
   project: {
@@ -24,185 +28,34 @@ interface ProjectCardProps {
 }
 
 const Projects = forwardRef<HTMLElement>((_, ref) => {
-  // Main object with different projects
-  const projects = [
-    {
-      id: uuid(),
-      name: "witty-analytics",
-      description:
-        "Full stack development of analytics platform using stripe for payments and strapi for backend.",
-      tags: [
-        { name: "react" },
-        { name: "strapi" },
-        { name: "HTML5" },
-        { name: "tailwindcss" },
-        { name: "postgres" },
-        { name: "stripe" },
-        { name: "typescript" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "geoserver-catasig-app",
-      description:
-        "Geoserver project used to display properties info in specific locations in Colombia, rows, neighboorhoods and more using Nuxtjs and Python.",
-      tags: [
-        { name: "vue" },
-        { name: "python" },
-        { name: "HTML5" },
-        { name: "tailwindcss" },
-        { name: "postgres" },
-        { name: "typescript" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "liquidacionac-app",
-      description:
-        "Full stack project based on Nextjs for appraisal and liquidation of properties in cadastral operations in Colombia - Atlántico.",
-      tags: [
-        { name: "react" },
-        { name: "nodejs" },
-        { name: "HTML5" },
-        { name: "tailwindcss" },
-        { name: "postgres" },
-        { name: "prisma" },
-        { name: "typescript" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "catasig",
-      description:
-        "Frontend development for the official website of Catasig as a cadastral manager in Atlántico.",
-      tags: [
-        { name: "angular" },
-        { name: "HTML5" },
-        { name: "SASS" },
-        { name: "typescript" },
-      ],
-      link: "https://www.catasig.gov.co/",
-    },
-    {
-      id: uuid(),
-      name: "hiveway",
-      description:
-        "Development of geoservice manager for calculate routes, manage of sales and sales representatives by countries and parameters in ABinBev.",
-      tags: [
-        { name: "angular" },
-        { name: "python" },
-        { name: "HTML5" },
-        { name: "SASS" },
-        { name: "typescript" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "mr-cake",
-      description:
-        "Ecommerce development from scracth using codeigniter and jQuery for a backery store.",
-      tags: [
-        { name: "jquery" },
-        { name: "PHP" },
-        { name: "HTML5" },
-        { name: "codeigniter" },
-        { name: "mysql" },
-      ],
-      link: "https://www.instagram.com/mrcakebq/?hl=es",
-    },
-    {
-      id: uuid(),
-      name: "note-calculator",
-      description:
-        "Simple Javascript web app to calculate notes per semester developed using materialize & jQuery.",
-      tags: [
-        { name: "jquery" },
-        { name: "javascript" },
-        { name: "HTML5" },
-        { name: "materialize" },
-        { name: "CSS3" },
-      ],
-      link: "https://jesusdsg.github.io/note-calculator/",
-    },
-    {
-      id: uuid(),
-      name: "sied-met-at-cal",
-      description:
-        "Monoproject based in .Net Framework using Devexpress framework for the management of medical equipment in hospitals.",
-      tags: [
-        { name: "devxpress" },
-        { name: "c#" },
-        { name: ".net framework" },
-        { name: "jquery" },
-        { name: "bootstrap" },
-        { name: "hospital" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "admisalud-med-at-home",
-      description:
-        "Monoproject based in .Net Framework using Devexpress framework for the management of medical functions in hospital.",
-      tags: [
-        { name: "devxpress" },
-        { name: "c#" },
-        { name: ".net framework" },
-        { name: "jquery" },
-        { name: "ajax" },
-        { name: "hospital" },
-      ],
-      link: "",
-    },
-    {
-      id: uuid(),
-      name: "digama-store",
-      description:
-        "Ecommerce website designed for a fashion store using Wordpress.",
-      tags: [
-        { name: "wordpress" },
-        { name: "woocommerce" },
-        { name: "fashion" },
-        { name: "ecommerce" },
-      ],
-      link: "",
-    },
-  ];
+  const [emblaRef, emblaApi] = useEmblaCarousel()
 
   /* 
   Project card
   */
   const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
-      <Link href={project.link}>
+      <Link href={project.link} className="embla__slide h-max">
         <Card>
           <div className="flex items-center gap-2">
             <Code className="text-cyan-500" />{" "}
             <h3 className="text-current font-bold" style={poppins.style}>
               {project.name}
-            </h3>          </div>
+            </h3>
+          </div>
           <div
-            className="h-24 mt-4 overflow-hidden text-gray-400 text-sm"
+            className="h-32 mt-4 overflow-hidden text-gray-400 text-sm"
             style={montserrat.style}
           >
             {project.description}
           </div>
-          <div className="flex flex-wrap gap-2 text-sm">
+          <div className="flex flex-wrap text-sm">
             {project.tags.map((tag: { name: string }) => {
               return (
-                <div
+                <Badge
                   key={tag.name}
-                  className={
-                    "bg-gray-700/50 py-1 px-2 rounded-lg text-xs text-gray-300 w-fit " +
-                    poppins.className
-                  }
-                >
-                  {tag.name}
-                </div>
+                  text={tag.name}
+                />
               );
             })}
           </div>
@@ -237,7 +90,7 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
   /* 
   Projects list 
   */
-  const listProjects = projects.map(
+  const listProjects = PROJECTS.map(
     (project: {
       id: string;
       name: string;
@@ -247,18 +100,39 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
     }) => <ProjectCard key={project.id} project={project} />
   );
 
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick
+  } = usePrevNextButtons(emblaApi)
+
   return (
-    <section  className="px-4 lg:px-20 my-20" id="projects" ref={ref}>
+    <section className="px-4 lg:px-20 my-20" id="projects" ref={ref}>
       <h3
         className="text-2xl font-bold text-white duration-300 font-bold"
         style={poppins.style}
       >
         Projects and Collaborations
       </h3>
-      <div className="py-8">
-        <Slider {...settings} className="grid">
+      <div className="py-8 w-full overflow-hidden">
+        {/*  <Slider {...settings} className="grid">
           {listProjects}
-        </Slider>
+        </Slider> */}
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {listProjects}
+          </div>
+
+          <div className="embla__controls">
+            <div className="embla__buttons">
+              <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+              <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+            </div>
+
+          </div>
+
+        </div>
       </div>
     </section>
   );

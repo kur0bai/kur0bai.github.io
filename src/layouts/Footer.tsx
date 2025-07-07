@@ -14,7 +14,7 @@ export default function Footer() {
           <Dribbble />
         </a>
         <a
-          href="https://github.com/jesusdsg"
+          href="https://github.com/kur0bai"
           rel="noreferrer"
           target="_blank"
           className="hover:text-cyan-500 duration-300"

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { Montserrat, Poppins } from "next/font/google";
 import { BookOpen, GraduationCap, Settings, Code2, Palette } from "lucide-react";
-import { skills } from "@/utils/constants";
+import { SKILLS } from "@/utils/constants";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
 const poppins = Poppins({
@@ -20,10 +20,10 @@ const About = forwardRef<HTMLElement>((_, ref) => {
         Skills and technologies
       </h3>
       <div className="grid gap-8 lg:grid-cols-3">
-        {skills.map((skill, index) => (
+        {SKILLS.map((skill, index) => (
           <Card key={index}>
             <div className="py-2" />
-            <h3 className="text-2xl font-bold text-white flex items-center gap-2" style={poppins.style}>
+            <h3 className="text-xl font-bold text-white flex items-center gap-2" style={poppins.style}>
               <skill.icon size={30} className="text-cyan-500" />
               {skill.title}
             </h3>
@@ -32,13 +32,13 @@ const About = forwardRef<HTMLElement>((_, ref) => {
             </div>
             <div className="mt-4">
               <strong className="text-white">Stack:</strong>
-              <br/>
-             <div className="mt-4">
+              <br />
+              <div className="mt-4">
                 {skill.technologies.map((tech, idx) => (
                   <Badge key={idx} text={tech} />
                 ))}
-             </div>
               </div>
+            </div>
 
           </Card>
         ))}
